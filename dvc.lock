@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: src/train.py
+      hash: md5
+      md5: 87f48fc41005fd920eb0c94443f4b567
+      size: 2102
+    outs:
+    - path: data/dataset.csv
+      hash: md5
+      md5: 5afc23b9622f8f9ffa60824f4e97d0d5
+      size: 121385
+    - path: metrics.json
+      hash: md5
+      md5: 2ea07593a1248c20fc5026afb8f989df
+      size: 137
+    - path: models/model.pkl
+      hash: md5
+      md5: ba56a3802a61598d2886106e881f79b5
+      size: 580648
+  monitor:
+    cmd: python monitoring/monitor.py
+    deps:
+    - path: data/dataset.csv
+      hash: md5
+      md5: 5afc23b9622f8f9ffa60824f4e97d0d5
+      size: 121385
+    - path: monitoring/monitor.py
+      hash: md5
+      md5: 130d02226b2db8f416fd9ff398b09f7c
+      size: 1349
+    outs:
+    - path: monitoring/drift_report.html
+      hash: md5
+      md5: 895018f3db833ee29e473c2b47c90078
+      size: 4003732

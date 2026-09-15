@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+mlruns/
+mlflow.db
+*.egg-info/
+.DS_Store
+
+# DVC gère ces fichiers, on garde seulement les .dvc
+/data/dataset.csv
+/models/model.pkl

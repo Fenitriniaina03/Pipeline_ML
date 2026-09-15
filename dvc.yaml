@@ -1,0 +1,19 @@
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+    outs:
+      - data/dataset.csv
+      - models/model.pkl
+    metrics:
+      - metrics.json:
+          cache: false
+
+  monitor:
+    cmd: python monitoring/monitor.py
+    deps:
+      - monitoring/monitor.py
+      - data/dataset.csv
+    outs:
+      - monitoring/drift_report.html
